@@ -6,4 +6,5 @@ public interface InterfaceEnemy
     void SetDamage();
     void SetRange();
     void Attack();
+    void DamageTaken();
 }
