@@ -1,5 +1,8 @@
 # Bu dosya, Unity projeleri için Git'in izlememesi gereken dosya ve klasörleri belirler.
-
+# VS klasörleri
+.vs/
+*.user
+*.suo
 # Unity'nin kendi ürettiği dosyalar
 /[Ll]ibrary/
 /[Tt]emp/
