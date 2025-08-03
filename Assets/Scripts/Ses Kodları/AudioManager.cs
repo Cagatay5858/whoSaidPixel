@@ -162,14 +162,34 @@ public class AudioManager : MonoBehaviour
 
     /// <summary>
     /// Müzik çalar (loop)
+    /// Eðer çalýnan müzik zaten istenen müzikse tekrar baþlatmaz.
     /// </summary>
     public void PlayMusic(AudioClip clip, bool loop = true)
     {
-        if (clip != null && musicSource != null)
+        if (musicSource == null)
+        {
+            Debug.LogWarning("Music AudioSource atanmamýþ! Müzik çalýnamýyor.");
+            return;
+        }
+
+        // Eðer zaten ayný müzik çalýyorsa, tekrar baþlatma
+        if (musicSource.clip == clip && musicSource.isPlaying)
+        {
+            return;
+        }
+
+        // Yeni müzik çalacaksa, mevcut müziði durdur
+        musicSource.Stop();
+
+        if (clip != null)
         {
             musicSource.clip = clip;
             musicSource.loop = loop;
             musicSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Çalýnacak müzik AudioClip'i boþ!");
         }
     }
 
