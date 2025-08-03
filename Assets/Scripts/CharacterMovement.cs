@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     private int currentWeaponIndex = 0;
     private float maxHealth = 100f;
     private float currentHealth;
+    public TextMeshProUGUI healthText;
 
     private float horizontal;
     private float vertical;
@@ -20,8 +22,10 @@ public class CharacterMovement : MonoBehaviour
     }
     void Update()
     {
+        healthText.text = "Health : " + currentHealth;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        
 
         if (Input.GetKeyDown(KeyCode.C))
         {
