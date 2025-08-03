@@ -15173,6 +15173,7 @@ GameObject:
   - component: {fileID: 463836093}
   - component: {fileID: 463836094}
   - component: {fileID: 463836095}
+  - component: {fileID: 463836096}
   m_Layer: 0
   m_Name: "Su_Tabancas\u0131"
   m_TagString: Untagged
@@ -15189,7 +15190,7 @@ Transform:
   m_GameObject: {fileID: 463836092}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.41054356, w: 0.911841}
-  m_LocalPosition: {x: -0.187724, y: -0.15517998, z: 0}
+  m_LocalPosition: {x: -0.187724, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15265,8 +15266,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1699105081}
   weapon: {fileID: 463836092}
-  bullet: {fileID: 0}
+  bullet: {fileID: 3372434974214402867, guid: 4a4c22c20f78b8245906bd501f25d7ef, type: 3}
   bulletSpawnPoint: {fileID: 1366973707}
+--- !u!95 &463836096
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463836092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b479490ed8a86804da90a174c3f40bba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -17119,7 +17142,7 @@ Transform:
   m_GameObject: {fileID: 1366973706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: -0.483, z: 0}
+  m_LocalPosition: {x: 1.65, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
