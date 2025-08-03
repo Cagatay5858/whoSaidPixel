@@ -13,26 +13,34 @@ public abstract class RangedEnemys : MonoBehaviour
     public float fireRate;
     private float timeToFire;
 
+    private GameObject bulletIns;
     public Transform firingPoint;
     public GameObject bulletPrefab;
+    public GameObject enemyWeapon;
 
 
 
 
     public virtual void GetTarget()
     {
-        if (GameObject.FindGameObjectWithTag("Player"))
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
         {
-            Target = GameObject.FindGameObjectWithTag("Player").transform;
+            Target = player.transform;
+        }
+        else
+        {
+            Target = null;
         }
     }
+
 
     public virtual void Shoot()
     {
         if(timeToFire <= 0f)
         {
             //ateþ Et
-
+            bulletIns = Instantiate(bulletPrefab, firingPoint.position, enemyWeapon.transform.rotation);
             timeToFire = fireRate;
         }
         else
@@ -43,9 +51,9 @@ public abstract class RangedEnemys : MonoBehaviour
 
     public virtual void RotateTowardsTarget()
     {
-        Vector2 targetDirection = Target.position - transform.position;
-        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
+        Vector2 targetDirection = Target.position - enemyWeapon.transform.position;
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
+        enemyWeapon.transform.localRotation = Quaternion.Slerp(enemyWeapon.transform.localRotation, q, rotateSpeed);
     }
 }

@@ -107,7 +107,7 @@ MonoBehaviour:
   destroyTime: 3
   whatDestroysBullet:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
 --- !u!95 &1134201336391974111
 Animator:
   serializedVersion: 7
@@ -187,7 +187,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

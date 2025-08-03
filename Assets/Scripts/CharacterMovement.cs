@@ -6,12 +6,18 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody2D rigidbody;
     public List<GameObject> weapons; // Inspector'dan eklenebilir
     private int currentWeaponIndex = 0;
+    private float maxHealth = 100f;
+    private float currentHealth;
 
     private float horizontal;
     private float vertical;
     public float speed = 100.0f;
     public Vector2 movement;
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -42,7 +48,12 @@ public class CharacterMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            //canı azalt 0 sa bitir
+            currentHealth -= 5f;
+            if(currentHealth <= 0)
+            {
+                //öldün
+                Destroy(gameObject);
+            }
         }
     }
 }
