@@ -4,23 +4,35 @@ using System.Collections.Generic;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController Instance;
+
     private List<int> randomSceneIndices = new List<int>();
     private int currentSceneIndex = 0;
 
-    void Start()
+    void Awake()
     {
-        // 1-9 arasý sahneleri ekle
-        for (int i = 1; i <= 9; i++)
-            randomSceneIndices.Add(i);
-
-        // Karýþtýr
-        ShuffleList(randomSceneIndices);
-
-        // Ýlk sahneye geç
-        LoadNextScene();
+        // Singleton oluþtur
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Sahne deðiþse de yok olma
+            PrepareSceneList();
+        }
+        else
+        {
+            Destroy(gameObject); // Çift kopyayý önle
+        }
     }
 
-    // Listeyi karýþtýrma fonksiyonu
+    private void PrepareSceneList()
+    {
+        randomSceneIndices.Clear();
+        for (int i = 1; i <= 9; i++) // 1-9 arasý sahneler
+            randomSceneIndices.Add(i);
+
+        ShuffleList(randomSceneIndices);
+    }
+
     private void ShuffleList(List<int> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -32,19 +44,17 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    // Sýradaki sahneyi yükle
     public void LoadNextScene()
     {
         if (currentSceneIndex < randomSceneIndices.Count)
         {
-            int nextScene = randomSceneIndices[currentSceneIndex];
+            int nextSceneIndex = randomSceneIndices[currentSceneIndex];
             currentSceneIndex++;
-            SceneManager.LoadScene(nextScene);
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            // Son sahne: index 10
-            SceneManager.LoadScene(10);
+            SceneManager.LoadScene(10); // Final sahnesi
         }
     }
 }

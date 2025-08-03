@@ -56,4 +56,28 @@ public class CharacterMovement : MonoBehaviour
             }
         }
     }
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        Debug.Log("Hasar alındı: " + amount + " | Kalan can: " + currentHealth);
+
+        if (currentHealth <= 0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Karakter öldü!");
+        // Ölüm animasyonu, sahne sıfırlama vs.
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            SceneController.Instance.LoadNextScene();
+        }
+    }
+
 }
