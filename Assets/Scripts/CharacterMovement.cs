@@ -38,4 +38,11 @@ public class CharacterMovement : MonoBehaviour
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         weapons[currentWeaponIndex].SetActive(true);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            //canı azalt 0 sa bitir
+        }
+    }
 }
