@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        
+        StartCoroutine(Spawner());
     }
     private IEnumerator Spawner()
     {
