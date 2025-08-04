@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3644011811860972974}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 65c5700fadd792249b39b884d048a500, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 65c5700fadd792249b39b884d048a500, type: 3}
       propertyPath: m_SortingOrder
@@ -123,7 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       propertyPath: m_SortingOrder

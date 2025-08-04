@@ -11,21 +11,21 @@ public class Robot : RangedEnemys, InterfaceEnemy
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
-        GetTarget(); // Ba�lang��ta hedef al�nmal�
+        Target = GameObject.FindGameObjectWithTag("Player");// Ba�lang��ta hedef al�nmal�
     }
 
     private void FixedUpdate()
     {
-        GetTarget(); // S�rekli kontrol et
+        // S�rekli kontrol et
 
         if (Target != null)
         {
-            float distance = Vector2.Distance(Target.position, transform.position);
+            float distance = Vector2.Distance(Target.transform.position, transform.position);
 
             if (distance >= distanceToStop)
             {
                 // Hedefe do�ru y�nelip ilerle
-                Vector2 direction = (Target.position - transform.position).normalized;
+                Vector2 direction = (Target.transform.position - transform.position).normalized;
                 rb.linearVelocity = direction * speed * Time.fixedDeltaTime;
             }
             else
@@ -45,7 +45,7 @@ public class Robot : RangedEnemys, InterfaceEnemy
         {
             RotateTowardsTarget();
 
-            float distance = Vector2.Distance(Target.position, transform.position);
+            float distance = Vector2.Distance(Target.transform.position, transform.position);
             if (distance <= distanceToShoot)
             {
                 Shoot();

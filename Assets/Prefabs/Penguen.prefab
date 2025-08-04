@@ -652,6 +652,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 3241651337912708124}
   - {fileID: 4698589908501345260}
+  healthText: {fileID: 5332349980244583568}
   speed: 200
   movement: {x: 0, y: 0}
 --- !u!95 &1865911593035759172
@@ -958,7 +959,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -48,18 +48,7 @@ public class CharacterMovement : MonoBehaviour
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         weapons[currentWeaponIndex].SetActive(true);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-        {
-            currentHealth -= 5f;
-            if(currentHealth <= 0)
-            {
-                //öldün
-                Destroy(gameObject);
-            }
-        }
-    }
+
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
@@ -78,6 +67,16 @@ public class CharacterMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            currentHealth -= 5f;
+            if (currentHealth <= 0)
+            {
+                //öldün
+                Destroy(gameObject);
+            }
+        }
+
         if (other.CompareTag("Door"))
         {
             SceneController.Instance.LoadNextScene();

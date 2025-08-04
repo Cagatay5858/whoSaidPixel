@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class RangedEnemys : MonoBehaviour
 {
-    public Transform Target;
+    public GameObject Target;
     public float speed = 150f;
     public float rotateSpeed = 0.0025f;
 
@@ -20,21 +20,6 @@ public abstract class RangedEnemys : MonoBehaviour
 
 
 
-
-    public virtual void GetTarget()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player)
-        {
-            Target = player.transform;
-        }
-        else
-        {
-            Target = null;
-        }
-    }
-
-
     public virtual void Shoot()
     {
         if(timeToFire <= 0f)
@@ -42,6 +27,7 @@ public abstract class RangedEnemys : MonoBehaviour
             //ateþ Et
             bulletIns = Instantiate(bulletPrefab, firingPoint.position, enemyWeapon.transform.rotation);
             timeToFire = fireRate;
+            
         }
         else
         {
@@ -51,7 +37,7 @@ public abstract class RangedEnemys : MonoBehaviour
 
     public virtual void RotateTowardsTarget()
     {
-        Vector2 targetDirection = Target.position - enemyWeapon.transform.position;
+        Vector2 targetDirection = Target.transform.position - enemyWeapon.transform.position;
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
         enemyWeapon.transform.localRotation = Quaternion.Slerp(enemyWeapon.transform.localRotation, q, rotateSpeed);
