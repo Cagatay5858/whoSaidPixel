@@ -1,11 +1,12 @@
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public abstract class Enemys : MonoBehaviour
+public abstract class AbsEnemys : MonoBehaviour
 {
     public GameObject Target;
     public float speed = 150f;
     public float rotateSpeed = 0.0025f;
+    private bool hasOnSight = false;
 
     public float distanceToShoot = 10f;
     public float distanceToStop = 8f;
@@ -18,16 +19,19 @@ public abstract class Enemys : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject enemyWeapon;
 
-
+    public bool getHasOnSight()
+    {
+        return hasOnSight;
+    }
 
     public virtual void Shoot()
     {
-        if(timeToFire <= 0f)
+        if (timeToFire <= 0f)
         {
             //ateþ Et
             bulletIns = Instantiate(bulletPrefab, firingPoint.position, enemyWeapon.transform.rotation);
             timeToFire = fireRate;
-            
+
         }
         else
         {
@@ -41,5 +45,22 @@ public abstract class Enemys : MonoBehaviour
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
         enemyWeapon.transform.localRotation = Quaternion.Slerp(enemyWeapon.transform.localRotation, q, rotateSpeed);
+    }
+
+    public virtual void MakeRay()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, Target.transform.position - transform.position);
+        if(ray.collider != null)
+        {
+            hasOnSight = ray.collider.CompareTag("Player");
+            if (hasOnSight)
+            {
+                Debug.DrawRay(transform.position, Target.transform.position - transform.position, Color.green);
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, Target.transform.position - transform.position, Color.red);
+            }
+        }
     }
 }

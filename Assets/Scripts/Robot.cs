@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Robot : RangedEnemys, InterfaceEnemy
+public class Robot : AbsEnemys, InterfaceEnemy
 {
     [SerializeField] private float maxHealth = 5f;
 
@@ -17,8 +17,8 @@ public class Robot : RangedEnemys, InterfaceEnemy
     private void FixedUpdate()
     {
         // S�rekli kontrol et
-
-        if (Target != null)
+        MakeRay();
+        if (getHasOnSight())
         {
             float distance = Vector2.Distance(Target.transform.position, transform.position);
 

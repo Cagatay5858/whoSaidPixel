@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mummy : MonoBehaviour, InterfaceEnemy
+public class Mummy : AbsEnemys
 {
     [SerializeField] private float maxHealth = 5f;
 
