@@ -11850,7 +11850,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12050,7 +12050,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12271,10 +12271,10 @@ Tilemap:
   - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: bf3a02e677453f84cb69aab095d5ee5b, type: 2}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 2667162599330718032, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 397752733, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: 1994731687, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
   - m_RefCount: 2
@@ -12289,8 +12289,8 @@ Tilemap:
     m_Data: {fileID: 1851344963, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
   - m_RefCount: 40
     m_Data: {fileID: -1519286827, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 397752733, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
   - m_RefCount: 20
     m_Data: {fileID: -60005425, guid: e11c490036907b8478fbb20337c3acd3, type: 3}
   m_TileMatrixArray:
@@ -12491,6 +12491,7 @@ GameObject:
   - component: {fileID: 2083037659}
   - component: {fileID: 2083037658}
   - component: {fileID: 2083037657}
+  - component: {fileID: 2083037660}
   m_Layer: 0
   m_Name: bucket
   m_TagString: Untagged
@@ -12614,6 +12615,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083037660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083037656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d232f94099fe9c4bb2ba93ef818a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

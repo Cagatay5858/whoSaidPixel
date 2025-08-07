@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public List<GameObject> weapons; // Inspector'dan eklenebilir
     private int currentWeaponIndex = 0;
     private float maxHealth = 100f;
-    private float currentHealth;
+    public float currentHealth;
     public TextMeshProUGUI healthText;
 
     private float horizontal;

@@ -7,18 +7,18 @@ public class DamageZone : MonoBehaviour
 
     private Coroutine damageCoroutine;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Coroutine baþlat
-            damageCoroutine = StartCoroutine(DamageOverTime(other.GetComponent<CharacterMovement>()));
+            damageCoroutine = StartCoroutine(DamageOverTime(collision.gameObject.GetComponent<CharacterMovement>()));
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggernExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             // Coroutine durdur
             if (damageCoroutine != null)
@@ -29,13 +29,13 @@ public class DamageZone : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator DamageOverTime(CharacterMovement health)
+    private System.Collections.IEnumerator DamageOverTime(CharacterMovement currentHealth)
     {
         while (true)
         {
-            if (health != null)
+            if (currentHealth != null)
             {
-                health.TakeDamage(damageAmount);
+                currentHealth.TakeDamage(damageAmount);
             }
             yield return new WaitForSeconds(damageInterval);
         }
