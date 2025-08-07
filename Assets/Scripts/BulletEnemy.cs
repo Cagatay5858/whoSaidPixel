@@ -26,11 +26,11 @@ public class BulletEnemy : MonoBehaviour
             //screen shake
 
             //damage enemy
-            //InterfaceEnemy interfaceEnemy = other.gameObject.GetComponent<InterfaceEnemy>();
-            //if(interfaceEnemy != null)
-            //{
-            //    interfaceEnemy.Damage(bulletDamage);
-            //}
+            if (other.gameObject.CompareTag("Player"))
+            {
+                MakeDamage(other.gameObject.GetComponent<CharacterMovement>());
+            }
+            
 
             Destroy(gameObject);
         }
@@ -42,5 +42,9 @@ public class BulletEnemy : MonoBehaviour
     private void SetDestroyTime()
     {
         Destroy(gameObject, destroyTime);
+    }
+    private void MakeDamage(CharacterMovement giveDamage)
+    {
+        giveDamage.TakeDamage(bulletDamage);
     }
 }
