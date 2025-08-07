@@ -624,7 +624,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 132327665, guid: fb8bce5f27e41d34fa45227bac4d2aeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -652,6 +652,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 3241651337912708124}
   - {fileID: 4698589908501345260}
+  currentHealth: 0
   healthText: {fileID: 5332349980244583568}
   speed: 200
   movement: {x: 0, y: 0}

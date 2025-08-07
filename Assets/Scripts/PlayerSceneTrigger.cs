@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class PlayerSceneTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneController.Instance.LoadNextScene();
+        }
     }
 }

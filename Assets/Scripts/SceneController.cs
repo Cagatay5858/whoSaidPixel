@@ -27,7 +27,7 @@ public class SceneController : MonoBehaviour
     private void PrepareSceneList()
     {
         randomSceneIndices.Clear();
-        for (int i = 1; i <= 9; i++) // 1-9 arasý sahneler
+        for (int i = 3; i <= 10; i++) // 1-9 arasý sahneler
             randomSceneIndices.Add(i);
 
         ShuffleList(randomSceneIndices);
@@ -35,9 +35,9 @@ public class SceneController : MonoBehaviour
 
     private void ShuffleList(List<int> list)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 3; i < list.Count; i++)
         {
-            int rand = Random.Range(i, list.Count);
+            int rand = Random.Range(i, 10);
             int temp = list[i];
             list[i] = list[rand];
             list[rand] = temp;
@@ -54,7 +54,7 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(10); // Final sahnesi
+            SceneManager.LoadScene(11); // Final sahnesi
         }
     }
 }

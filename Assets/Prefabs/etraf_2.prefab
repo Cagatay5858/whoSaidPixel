@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2850224184957714167}
   - component: {fileID: 5167954795970612172}
   - component: {fileID: 5979994134288301653}
+  - component: {fileID: 6987227195478175256}
   m_Layer: 0
   m_Name: etraf_2
   m_TagString: Door
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -134,3 +135,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 1.6875}
   m_EdgeRadius: 0
+--- !u!114 &6987227195478175256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680018466495148122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be177b127cea1ce46bb0e5cfde03afed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
