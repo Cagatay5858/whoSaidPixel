@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Robot : AbsEnemys, InterfaceEnemy
+public class Robot : AbsEnemys
 {
     [SerializeField] private float maxHealth = 5f;
 
