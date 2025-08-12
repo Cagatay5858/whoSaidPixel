@@ -17,8 +17,10 @@ public class BulletBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if((whatDestroysBullet.value & (1 << other.gameObject.layer)) > 0)
+        if ((whatDestroysBullet.value & (1 << other.gameObject.layer)) > 0)
         {
+
+        }
             //particles
 
             //sound
@@ -26,14 +28,24 @@ public class BulletBehaviour : MonoBehaviour
             //screen shake
 
             //damage enemy
-            InterfaceEnemy interfaceEnemy = other.gameObject.GetComponent<InterfaceEnemy>();
-            if(interfaceEnemy != null)
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Robot rangedEnemy = other.gameObject.GetComponent<Robot>();
+            Mummy meleEnemy = other.gameObject.GetComponent<Mummy>();
+
+            if(meleEnemy != null)
             {
-                interfaceEnemy.Damage(bulletDamage);
+                meleEnemy.Damage(bulletDamage);
             }
+            if(rangedEnemy != null)
+            {
+                rangedEnemy.Damage(bulletDamage);
+            }
+        }
+
+
 
             Destroy(gameObject);
-        }
     }
     private void SetStraightVelocity()
     {

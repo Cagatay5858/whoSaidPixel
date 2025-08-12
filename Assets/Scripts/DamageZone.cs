@@ -16,9 +16,9 @@ public class DamageZone : MonoBehaviour
         }
     }
 
-    private void OnTriggernExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Coroutine durdur
             if (damageCoroutine != null)

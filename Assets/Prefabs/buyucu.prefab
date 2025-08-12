@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: f2d198bfd6b64854eb07e3244f753a4f, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f2d198bfd6b64854eb07e3244f753a4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215,9 +215,9 @@ MonoBehaviour:
   Target: {fileID: 0}
   speed: 75
   rotateSpeed: 0.25
-  distanceToShoot: 4
-  distanceToStop: 2
-  fireRate: 1
+  distanceToShoot: 5
+  distanceToStop: 5
+  fireRate: 3
   firingPoint: {fileID: 4699511972824518150}
   bulletPrefab: {fileID: 7244594638946156277, guid: 28fc1c761bc82054ea7a593a900c76fc, type: 3}
   enemyWeapon: {fileID: 7647343581294556774}

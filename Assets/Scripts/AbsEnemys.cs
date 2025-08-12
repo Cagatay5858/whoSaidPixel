@@ -43,9 +43,24 @@ public abstract class AbsEnemys : MonoBehaviour
     {
         Vector2 targetDirection = Target.transform.position - enemyWeapon.transform.position;
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+
+        // Silahý döndür
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
         enemyWeapon.transform.localRotation = Quaternion.Slerp(enemyWeapon.transform.localRotation, q, rotateSpeed);
+
+        // Karakter yönünü deðiþtirme kýsmý
+        if (angle > 90 || angle < -90)
+        {
+            // Sola bak
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            // Saða bak
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
+
 
     public virtual void MakeRay()
     {

@@ -48,16 +48,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 65c5700fadd792249b39b884d048a500, type: 3}
-      propertyPath: m_SortingOrder
+      propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 65c5700fadd792249b39b884d048a500, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65c5700fadd792249b39b884d048a500, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.036
+      value: -0.114
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65c5700fadd792249b39b884d048a500, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.052
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 65c5700fadd792249b39b884d048a500, type: 3}
       propertyPath: m_LocalPosition.z
@@ -130,6 +134,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -190,10 +198,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8014052568834376981}
+      addedObject: {fileID: 5069063997257450319}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5069063997257450319}
+      addedObject: {fileID: 6674420666152716856}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7365578869037985162}
@@ -203,29 +211,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: a20b3f464a9957c4dbf57c6b42ffccf8, type: 3}
   m_PrefabInstance: {fileID: 8557742673755370840}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8014052568834376981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619970741960974896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9ebf137325b9c43b2c919609c0559b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  speed: 75
-  rotateSpeed: 0.25
-  distanceToShoot: 6
-  distanceToStop: 4
-  fireRate: 1
-  firingPoint: {fileID: 3644011811860972974}
-  bulletPrefab: {fileID: 603302837208090134, guid: e667b72fe6335fe4bb15cdc0255d1659, type: 3}
-  enemyWeapon: {fileID: 4026592669178127290}
-  maxHealth: 5
-  rb: {fileID: 5069063997257450319}
 --- !u!50 &5069063997257450319
 Rigidbody2D:
   serializedVersion: 5
@@ -253,6 +238,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6674420666152716856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619970741960974896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9ebf137325b9c43b2c919609c0559b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  speed: 75
+  rotateSpeed: 0.0025
+  distanceToShoot: 8
+  distanceToStop: 8
+  fireRate: 2.5
+  firingPoint: {fileID: 3644011811860972974}
+  bulletPrefab: {fileID: 603302837208090134, guid: e667b72fe6335fe4bb15cdc0255d1659, type: 3}
+  enemyWeapon: {fileID: 4026592669178127290}
+  maxHealth: 5
+  rb: {fileID: 5069063997257450319}
 --- !u!61 &7365578869037985162
 BoxCollider2D:
   m_ObjectHideFlags: 0
