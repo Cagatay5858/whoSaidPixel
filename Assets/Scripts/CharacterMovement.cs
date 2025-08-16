@@ -1,9 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 
 public class CharacterMovement : MonoBehaviour
 {
+
+    [SerializeField]
+    private Animator healthBarAnim;
+
+    public string healthBarParameterName;
+
+
     public Rigidbody2D rigidbody;
     public List<GameObject> weapons; // Inspector'dan eklenebilir
     private int currentWeaponIndex = 0;
@@ -22,7 +30,8 @@ public class CharacterMovement : MonoBehaviour
     }
     void Update()
     {
-        healthText.text = "Health : " + currentHealth;
+        healthBarAnim.SetFloat(healthBarParameterName, currentHealth);
+        healthText.text = ""+currentHealth;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         
