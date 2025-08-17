@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Animations;
+using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private Animator healthBarAnim;
 
+    [SerializeField]
+    private Animator characterAnimator;
+
     public string healthBarParameterName;
 
 
     public Rigidbody2D rigidbody;
-    public List<GameObject> weapons; // Inspector'dan eklenebilir
+    public List<GameObject> weapons;// Inspector'dan eklenebilir
+    public List<GameObject> inventory;
     private int currentWeaponIndex = 0;
     private float maxHealth = 100f;
     public float currentHealth;
@@ -34,7 +39,11 @@ public class CharacterMovement : MonoBehaviour
         healthText.text = ""+currentHealth;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        
+
+        bool isMoving = (horizontal != 0f || vertical != 0f);
+        characterAnimator.SetBool("IsMoving", isMoving);
+
+
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -52,10 +61,12 @@ public class CharacterMovement : MonoBehaviour
     {
         // Mevcut silah� kapat
         weapons[currentWeaponIndex].SetActive(false);
+        inventory[currentWeaponIndex].SetActive(false);
 
         // S�radaki silah� aktif et
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         weapons[currentWeaponIndex].SetActive(true);
+        inventory[currentWeaponIndex].SetActive(true);
     }
 
     public void TakeDamage(float amount)
